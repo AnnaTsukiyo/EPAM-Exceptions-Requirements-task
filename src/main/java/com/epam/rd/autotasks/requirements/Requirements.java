@@ -6,7 +6,6 @@ public class Requirements {
         if (obj == null) {
             throw new NullPointerException();
         }
-
     }
 
     public static void requireNonNull(Object obj, String message) {
@@ -23,24 +22,24 @@ public class Requirements {
 
     public static void checkArgument(boolean value, String message) {
         if (value == false) {
-            throw new IllegalStateException();
+            throw new IllegalArgumentException(message);
         }
     }
 
     public static void checkState(boolean value) {
         if (value == false) {
-            throw new IllegalArgumentException();
+            throw new IllegalStateException();
         }
     }
 
     public static void checkState(boolean value, String message) {
         if (value == false) {
-            throw new IllegalArgumentException(message);
+            throw new IllegalStateException(message);
         }
     }
 
     public static void checkIndex(int index, int size) {
-        if (index < 0 || index > size) {
+        if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException();
         }
     }
